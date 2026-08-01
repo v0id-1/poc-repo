@@ -1,0 +1,6 @@
+site_name: techdocs-extra-templates-poc
+
+# This is the whole vulnerability: `extra_templates` is on Backstage's
+# mkdocs.yml allowlist, and MkDocs renders the files it names as Jinja2.
+extra_templates:
+  - poc.html
